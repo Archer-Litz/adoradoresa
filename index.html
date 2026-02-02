@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GNC JAPÃO - Cobertura Especial Kira</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Fontes (Opcional, mas melhora o visual) -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Merriweather', serif;
+        }
+        
+        /* Animação do Letreiro (Marquee) */
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            animation: marquee 35s linear infinite;
+            white-space: nowrap;
+        }
+        
+        /* Scrollbar personalizada */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
+
+    <!-- Top Bar - Breaking News -->
+    <div class="bg-red-700 text-white text-sm font-bold py-2 px-4 flex items-center justify-between sticky top-0 z-50 shadow-md h-10">
+        <div class="flex items-center gap-2 animate-pulse min-w-fit z-10 bg-red-700 pr-2">
+            <i data-lucide="shield-alert" class="w-4 h-4"></i>
+            <span class="uppercase tracking-wider">Plantão Tóquio</span>
+        </div>
+        
+        <div class="flex-1 mx-4 overflow-hidden relative h-full flex items-center">
+            <div class="animate-marquee inline-block absolute top-1/2 -translate-y-1/2">
+                ICPO (INTERPOL) CONFIRMA: "KIRA EXISTE E É HUMANO" ++ RELATÓRIO VAZADO APONTA SUSPEITO NA REGIÃO DE KANTO ++ L PROMETE PRISÃO ANTES DO FIM DO ANO ++ PSICÓLOGOS AFIRMAM: "COMPORTAMENTO INFANTIL E NARCISISTA" ++ POLÍCIA NACIONAL EM ALERTA MÁXIMO ++
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-2 min-w-fit pl-2 bg-red-700 z-10">
+            <span class="bg-white text-red-700 px-2 py-0.5 rounded text-xs">AO VIVO</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-300">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div class="text-4xl md:text-6xl font-serif font-black tracking-tighter text-slate-900 mb-4 md:mb-0">
+                    GNC <span class="text-red-700">JAPÃO</span>
+                </div>
+                <div class="text-right hidden md:block text-gray-500 text-sm">
+                    <p id="current-date">Carregando data...</p>
+                    <p>Chiyoda • Shinjuku • Shibuya • Osaka</p>
+                </div>
+            </div>
+            
+            <!-- Nav -->
+            <nav class="flex items-center justify-between border-t border-b border-gray-200 py-3">
+                <ul class="flex gap-6 text-sm font-bold uppercase tracking-wide text-gray-700 overflow-x-auto whitespace-nowrap pb-2 md:pb-0">
+                    <li class="hover:text-red-700 cursor-pointer text-red-700 transition-colors">Cobertura Especial</li>
+                    <li class="hover:text-red-700 cursor-pointer transition-colors">Nacional</li>
+                    <li class="hover:text-red-700 cursor-pointer transition-colors">Investigação L</li>
+                    <li class="hover:text-red-700 cursor-pointer transition-colors">Economia</li>
+                    <li class="hover:text-red-700 cursor-pointer transition-colors">Cultura</li>
+                    <li class="hover:text-red-700 cursor-pointer transition-colors">Opinião</li>
+                </ul>
+                <div class="flex gap-4 text-gray-500 ml-4">
+                    <i data-lucide="search" class="w-5 h-5 cursor-pointer hover:text-black transition-colors"></i>
+                    <i data-lucide="menu" class="w-5 h-5 cursor-pointer hover:text-black transition-colors"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+            <!-- Main Article Column -->
+            <div class="lg:col-span-8">
+                <!-- Hero Article -->
+                <div class="relative group cursor-pointer mb-8">
+                    <div class="w-full h-96 bg-slate-900 rounded-lg overflow-hidden flex items-center justify-center relative shadow-lg">
+                        <!-- Background -->
+                        <div class="absolute inset-0 bg-slate-900"></div>
+                        <!-- Kanto Map Background -->
+                        <div class="absolute inset-0 opacity-30 bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Map_of_Kanto_Region_in_Japan.svg/1200px-Map_of_Kanto_Region_in_Japan.svg.png')] bg-cover bg-center grayscale mix-blend-overlay"></div>
+                        
+                        <!-- Target Graphic -->
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="relative">
+                                <div class="w-32 h-32 border-4 border-red-600 rounded-full animate-ping absolute top-0 left-0 opacity-50"></div>
+                                <div class="w-32 h-32 border-2 border-red-500 rounded-full flex items-center justify-center bg-black/30 backdrop-blur-sm">
+                                    <i data-lucide="users" class="w-12 h-12 text-red-500"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content Overlay -->
+                        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent pt-20">
+                            <span class="bg-red-600 text-white px-2 py-1 text-xs font-bold uppercase rounded mb-2 inline-block">Vazamento Exclusivo</span>
+                            <h1 class="text-3xl md:text-5xl font-serif font-bold text-white leading-tight mb-2 group-hover:underline decoration-red-600 underline-offset-4 shadow-black drop-shadow-md">
+                                Relatório da Força-Tarefa: "Kira é um residente de Tóquio e nós já estreitamos o cerco"
+                            </h1>
+                            <p class="text-gray-300 text-lg hidden md:block border-l-4 border-red-600 pl-4 mt-4 bg-black/50 p-2 rounded backdrop-blur-sm">
+                                Fontes ligadas ao detetive 'L' descartam teorias divinas. "Ele é humano, age com base em informações locais e tem um perfil psicológico imaturo. Sabemos que ele está assistindo agora."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub Articles Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Article 1 -->
+                    <div class="border-t-2 border-gray-200 pt-4 hover:bg-gray-50 transition p-4 rounded cursor-pointer group">
+                        <span class="text-xs font-bold uppercase text-blue-700 mb-2 block">Análise Criminal</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 leading-tight group-hover:text-blue-800">L desafia o assassino: "Vou provar que você é apenas uma pessoa comum"</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-3">Em comunicado não-oficial, detetive afirma que a captura é questão de tempo. "Nenhum humano pode brincar de Deus para sempre".</p>
+                        <div class="flex items-center text-xs text-gray-500 gap-2">
+                            <i data-lucide="clock" class="w-3 h-3"></i>
+                            <span>Há 2 horas</span>
+                        </div>
+                    </div>
+
+                    <!-- Article 2 -->
+                    <div class="border-t-2 border-gray-200 pt-4 hover:bg-gray-50 transition p-4 rounded cursor-pointer group">
+                        <span class="text-xs font-bold uppercase text-green-700 mb-2 block">Kanto</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 leading-tight group-hover:text-green-800">Polícia intensifica patrulhas em Shinjuku e Shibuya</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-3">Bloqueios e varreduras digitais sugerem que a investigação focou em um bairro específico da capital.</p>
+                        <div class="flex items-center text-xs text-gray-500 gap-2">
+                            <i data-lucide="clock" class="w-3 h-3"></i>
+                            <span>Há 2 horas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Column -->
+            <div class="lg:col-span-4 space-y-6">
+                <!-- Status Widget -->
+                <div class="bg-slate-900 text-white p-6 rounded-lg shadow-xl border-l-4 border-red-600">
+                    <h3 class="text-red-500 uppercase text-xs font-bold tracking-widest mb-2 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
+                        Status da Investigação
+                    </h3>
+                    <div class="text-4xl font-mono font-bold mb-1 text-yellow-500 animate-pulse">
+                        NÍVEL CRÍTICO
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Atenção máxima em todos os distritos de Tóquio.</p>
+                    
+                    <div class="space-y-3 pt-4 border-t border-slate-700">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2 text-gray-300 text-sm">
+                                <i data-lucide="users" class="w-4 h-4 text-blue-400"></i>
+                                <span>Agentes em Campo</span>
+                            </div>
+                            <span class="font-bold text-white">3.400+</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2 text-gray-300 text-sm">
+                                <i data-lucide="trending-down" class="w-4 h-4 text-green-400 rotate-180"></i>
+                                <span>Denúncias Anônimas</span>
+                            </div>
+                            <span class="font-bold text-white">+400%</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2 text-gray-300 text-sm">
+                                <i data-lucide="skull" class="w-4 h-4 text-red-400"></i>
+                                <span>Contador de Mortes</span>
+                            </div>
+                            <span class="font-bold text-white font-mono" id="death-counter">1423</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Feed Widget -->
+                <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                    <h3 class="font-bold text-lg mb-4 flex items-center gap-2 border-b pb-2">
+                        <i data-lucide="globe" class="w-4 h-4"></i>
+                        Vozes de Tóquio
+                    </h3>
+                    <div class="space-y-4 h-80 overflow-y-auto pr-2 custom-scrollbar">
+                        <!-- Comments -->
+                        <div class="flex gap-3 text-sm">
+                            <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0 font-bold text-gray-500">V</div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-gray-900">@VerdadeOculta</span>
+                                    <span class="text-gray-400 text-xs">Agora</span>
+                                </div>
+                                <p class="text-gray-700 mt-1">Se o L diz que ele é humano, acabou a magia. É só mais um assassino escondido no quarto.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 text-sm">
+                            <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0 font-bold text-gray-500">K</div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-gray-900">@KiraFollower_99</span>
+                                    <span class="text-gray-400 text-xs">2m atrás</span>
+                                </div>
+                                <p class="text-gray-700 mt-1">Isso é mentira da mídia! Eles querem nos fazer perder a fé. Kira NÃO é humano!</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 text-sm">
+                            <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0 font-bold text-gray-500">U</div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-gray-900">@UniStudent_T</span>
+                                    <span class="text-gray-400 text-xs">5m atrás</span>
+                                </div>
+                                <p class="text-gray-700 mt-1">Estão dizendo que ele é um estudante? A polícia está revistando mochilas na estação de Shibuya.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 text-sm">
+                            <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0 font-bold text-gray-500">S</div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-gray-900">@SkepticalOne</span>
+                                    <span class="text-gray-400 text-xs">12m atrás</span>
+                                </div>
+                                <p class="text-gray-700 mt-1">Engraçado como o "Deus" não conseguiu matar o L ainda. Talvez ele não seja tão poderoso assim.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 text-sm">
+                            <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0 font-bold text-gray-500">F</div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-gray-900">@FearfulMom</span>
+                                    <span class="text-gray-400 text-xs">30m atrás</span>
+                                </div>
+                                <p class="text-gray-700 mt-1">Se ele é humano, ele pode ser meu vizinho? Isso é ainda mais assustador.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="border-t border-gray-300 pt-8 mt-4">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                <i data-lucide="video" class="w-6 h-6 text-red-700"></i>
+                Especiais da TV Nichiuri
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Video 1 -->
+                <div class="group cursor-pointer">
+                    <div class="relative w-full aspect-video bg-gray-800 rounded mb-3 overflow-hidden shadow-md">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center group-hover:scale-110 transition duration-300">
+                                <div class="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-white border-b-[8px] border-b-transparent ml-1"></div>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-1 rounded">15:00</span>
+                    </div>
+                    <h3 class="font-bold leading-tight group-hover:text-red-700 transition-colors">ANÁLISE: Por que L acredita que Kira está em Tóquio?</h3>
+                    <p class="text-xs text-gray-500 mt-1">22M visualizações</p>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="group cursor-pointer">
+                    <div class="relative w-full aspect-video bg-gray-800 rounded mb-3 overflow-hidden shadow-md">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center group-hover:scale-110 transition duration-300">
+                                <div class="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-white border-b-[8px] border-b-transparent ml-1"></div>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-1 rounded">08:45</span>
+                        <span class="absolute top-2 left-2 bg-red-600 text-white text-[10px] px-1 rounded font-bold uppercase animate-pulse">Ao Vivo</span>
+                    </div>
+                    <h3 class="font-bold leading-tight group-hover:text-red-700 transition-colors">AO VIVO: Movimentação estranha na sede da Polícia Nacional</h3>
+                    <p class="text-xs text-gray-500 mt-1">18.2M visualizações</p>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="group cursor-pointer">
+                    <div class="relative w-full aspect-video bg-gray-800 rounded mb-3 overflow-hidden shadow-md">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center group-hover:scale-110 transition duration-300">
+                                <div class="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-white border-b-[8px] border-b-transparent ml-1"></div>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-1 rounded">04:20</span>
+                    </div>
+                    <h3 class="font-bold leading-tight group-hover:text-red-700 transition-colors">Psicologia Forense: O perfil de um assassino com "Complexo de Deus"</h3>
+                    <p class="text-xs text-gray-500 mt-1">50M visualizações</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="text-2xl font-serif font-black text-white mb-4">GNC JAPÃO</div>
+                <p class="text-sm">A fonte de notícias mais confiável do arquipélago. Cobrindo a caçada ao Kira 24h.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Local</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white">Kanto</a></li>
+                    <li><a href="#" class="hover:text-white">Kansai</a></li>
+                    <li><a href="#" class="hover:text-white">Kyushu/Okinawa</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Sobre</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white">Conselho Editorial</a></li>
+                    <li><a href="#" class="hover:text-white">Ética Jornalística</a></li>
+                    <li><a href="#" class="hover:text-white">Contato (Tóquio)</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Alerta Kira</h4>
+                <p class="text-sm mb-2">Receba notificações da investigação em tempo real.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Seu e-mail" class="px-3 py-2 bg-slate-800 rounded-l text-white w-full focus:outline-none border border-slate-700 focus:border-red-700">
+                    <button class="bg-red-700 text-white px-4 py-2 rounded-r font-bold hover:bg-red-600 transition-colors">Assinar</button>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 mt-8 pt-8 border-t border-slate-800 text-center text-xs">
+            © 2008 GNC Japan Corp. Todos os direitos reservados. Minato-ku, Tokyo.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Inicializa os ícones Lucide
+        lucide.createIcons();
+
+        // Data e Hora - Travado em 2008
+        function updateDate() {
+            const dateElement = document.getElementById('current-date');
+            const now = new Date();
+            now.setFullYear(2008); // Força o ano de 2008
+
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            
+            // Primeira letra maiúscula
+            const dateString = now.toLocaleDateString('pt-BR', options);
+            dateElement.textContent = dateString.charAt(0).toUpperCase() + dateString.slice(1);
+        }
+
+        // Contador de Mortes
+        let deathCount = 1423;
+        const deathCounterElement = document.getElementById('death-counter');
+
+        function updateDeathCount() {
+            // 30% de chance de aumentar o contador a cada intervalo
+            if (Math.random() > 0.7) {
+                deathCount++;
+                deathCounterElement.textContent = deathCount.toLocaleString();
+                
+                // Pequena animação visual de flash vermelho no texto
+                deathCounterElement.classList.add('text-red-500');
+                deathCounterElement.classList.remove('text-white');
+                
+                setTimeout(() => {
+                    deathCounterElement.classList.add('text-white');
+                    deathCounterElement.classList.remove('text-red-500');
+                }, 500);
+            }
+        }
+
+        // Inicialização
+        updateDate();
+        
+        // Intervalos
+        setInterval(updateDate, 60000); // Atualiza data a cada minuto (para manter o ano 2008 se a página ficar aberta)
+        setInterval(updateDeathCount, 3000); // Tenta atualizar mortes a cada 3 segundos
+    </script>
+</body>
+</html>
